@@ -18,16 +18,14 @@ function FormVehicle() {
     licensePlate: "",
   });
   const [error, setError] = useState({
+    eModel: "",
     eLicensePlate: "",
-    eEmail: "",
-    ePhone: "",
-    ePassword: "",
   });
 
   const isFull = data.manufacturers && data.licensePlate;
   const onSubmit = async (event) => {
     event.preventDefault();
-    checkFormVehicle(data, setError, setData);
+    checkFormVehicle(data, setError);
   };
 
   return (
@@ -96,7 +94,7 @@ function FormVehicle() {
               setData({ ...data, model: event.target.value })
             }
           />
-          {error.eLicensePlate ? <p>{error.eLicensePlate}</p> : ""}
+          {error.eModel ? <p>{error.eModel}</p> : ""}
           <Button disabled={!isFull} type="submit">
             Create New Vehicle
           </Button>
