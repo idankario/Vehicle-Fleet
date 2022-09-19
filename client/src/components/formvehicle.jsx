@@ -3,23 +3,26 @@ import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import TextField from "@mui/material/TextField";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
+import Button from "@mui/material/Button";
 import Select from "@mui/material/Select";
 import MenuItem from "@mui/material/MenuItem";
-import { checkFormVehicle } from "./utils/regexValidation";
+import { checkFormVehicle } from "../components/utils/regexValidation";
+import { H1 } from "../components/h1";
 
-function FormVehicle({ Dataform }) {
+function FormVehicle() {
   const [data, setData] = useState({
-    model: Dataform ? Dataform.model : "",
-    color: Dataform ? Dataform.color : "white",
-    year: Dataform ? Dataform.year : "2019",
-    manufacturers: Dataform ? Dataform.manufacturers : "BMW",
-    licensePlate: Dataform ? Dataform.licensePlate : "",
+    model: "",
+    color: "white",
+    year: 2010,
+    manufacturers: "BMW",
+    licensePlate: "",
   });
   const [error, setError] = useState({
     eModel: "",
     eLicensePlate: "",
   });
 
+  const isFull = data.manufacturers && data.licensePlate;
   const onSubmit = async (event) => {
     event.preventDefault();
     checkFormVehicle(data, setError);
@@ -28,6 +31,7 @@ function FormVehicle({ Dataform }) {
   return (
     <form onSubmit={onSubmit}>
       <section>
+        <H1>Create New Vehicle</H1>
         <Select
           label="Manufacturers"
           value={data.manufacturers}
@@ -84,6 +88,9 @@ function FormVehicle({ Dataform }) {
           onChange={(event) => setData({ ...data, model: event.target.value })}
         />
         {error.eModel ? <p>{error.eModel}</p> : ""}
+        <Button disabled={!isFull} type="submit">
+          Create New Vehicle
+        </Button>
       </section>
     </form>
   );
