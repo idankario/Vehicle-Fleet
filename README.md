@@ -43,7 +43,6 @@ Delete Page
 </p>
 <p><b>2) npm i</b></p>
 
-<a href="https://documenter.getpostman.com/view/17930872/2s7Ytaequr">postman collection</a>
 
 
 
