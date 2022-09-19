@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-// import CircularProgress from "@mui/material/CircularProgress";
+import CircularProgress from "@mui/material/CircularProgress";
 import Button from "@mui/material/Button";
 import ControlPointIcon from "@mui/icons-material/ControlPoint";
 import { getListVehicle } from "../Api";
@@ -7,11 +7,11 @@ import Header from "../components/header";
 import TableVehicle from "../components/tablevehicle";
 import { H1 } from "../components/h1";
 import Container from "../components/container";
-import FormVehicle from "./fromvehicle3";
+import DialogFormVehicle from "../components/dialogformvehicle";
 
 function HomePage() {
   const [rows, setRows] = useState(null);
-  const [open, setOpen] = useState(false);
+  const [openCreate, setOpen] = useState(false);
   useEffect(() => {
     async function getDataDB() {
       const data = await getListVehicle();
@@ -20,12 +20,20 @@ function HomePage() {
     getDataDB();
   }, []);
 
+  const handleCloseCreate = () => {
+    setOpen(false);
+  };
   return (
     <Container>
       <Header />
       <div style={{ textAlign: "center" }}>
         <H1>Vehicle LIST</H1>
-        {open && <FormVehicle />}
+        {openCreate && (
+          <DialogFormVehicle
+            open={openCreate}
+            handleClose={handleCloseCreate}
+          />
+        )}
         <Button
           onClick={() => {
             setOpen(true);
@@ -35,11 +43,11 @@ function HomePage() {
         >
           Add New Vehicle
         </Button>
-        {/* {rows ? ( */}
-        <TableVehicle rows={rows} />
-        {/* ) : (
+        {rows ? (
+          <TableVehicle rows={rows} />
+        ) : (
           <CircularProgress style={{ marginTop: "20vh", color: "yellow" }} />
-        )} */}
+        )}
       </div>
     </Container>
   );
