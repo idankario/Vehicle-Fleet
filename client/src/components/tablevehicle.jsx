@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Table from "@mui/material/Table";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
@@ -7,9 +7,30 @@ import TableBody from "@mui/material/TableBody";
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
 import IconButton from "@mui/material/IconButton";
+import Button from "@mui/material/Button";
+import Dialog from "@mui/material/Dialog";
+import DialogActions from "@mui/material/DialogActions";
+import DialogTitle from "@mui/material/DialogTitle";
 import { deleteVehicle } from "../Api";
+import DialogFormVehicle from "./dialogformvehicle";
 
 export default function TableVehicle({ rows }) {
+  const [deleteDialog, setDeleteDialog] = useState(false);
+  const [editDialog, setEditDialog] = useState(false);
+  const handleDeleteOpen = () => {
+    setDeleteDialog(true);
+  };
+
+  const handleDeleteClose = () => {
+    setDeleteDialog(false);
+  };
+  const handleEditOpen = () => {
+    setEditDialog(true);
+  };
+
+  const handleEditClose = () => {
+    setEditDialog(false);
+  };
   return (
     <Table
       sx={{ width: "1000px", fontWeight: "bold", margin: "auto" }}
@@ -52,16 +73,51 @@ export default function TableVehicle({ rows }) {
                 <TableCell>{row.year.split("-")[0]}</TableCell>
                 <TableCell>{row.color}</TableCell>
                 <TableCell>
-                  <IconButton aria-label="editIcon" title="Edit">
-                    <EditIcon />
-                  </IconButton>
-                  <IconButton
-                    onClick={() => deleteVehicle(row.licensePlate)}
-                    aria-label="editIcon"
-                    title="Delete"
-                  >
-                    <DeleteIcon />
-                  </IconButton>
+                  <div>
+                    <IconButton
+                      onClick={() => handleEditOpen()}
+                      color="primary"
+                      aria-label="editIcon"
+                      title="Edit"
+                    >
+                      <EditIcon />
+                    </IconButton>
+                    {editDialog && (
+                      <DialogFormVehicle
+                        dataForm={row}
+                        handleClose={handleEditClose}
+                        open={editDialog}
+                        isEdit={1}
+                      />
+                    )}
+                  </div>
+                  <div>
+                    <IconButton
+                      onClick={() => handleDeleteOpen()}
+                      aria-label="editIcon"
+                      title="Delete"
+                      color="error"
+                    >
+                      <DeleteIcon />
+                    </IconButton>
+                    <Dialog open={deleteDialog} onClose={handleDeleteClose}>
+                      <DialogTitle id="alert-dialog-title">
+                        Are you suer you want to delete vehicle?
+                      </DialogTitle>
+                      <DialogActions>
+                        <Button onClick={handleDeleteClose}>Disagree</Button>
+                        <Button
+                          onClick={() => {
+                            deleteVehicle(row.licensePlate);
+                            handleDeleteClose();
+                          }}
+                          autoFocus
+                        >
+                          Agree
+                        </Button>
+                      </DialogActions>
+                    </Dialog>
+                  </div>
                 </TableCell>
               </TableRow>
             ))
