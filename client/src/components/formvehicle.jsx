@@ -19,12 +19,10 @@ function FormVehicle({ Dataform }) {
     eModel: "",
     eLicensePlate: "",
   });
-
   const onSubmit = async (event) => {
     event.preventDefault();
     checkFormVehicle(data, setError);
   };
-
   return (
     <form onSubmit={onSubmit}>
       <section>

@@ -18,7 +18,6 @@ export async function checkFormVehicle(data, setError) {
     eModel,
     eLicensePlate,
   });
-
   if (eModel.length || eLicensePlate.length) return 0;
   return 1;
 }
