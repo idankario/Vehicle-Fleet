@@ -8,8 +8,8 @@ export async function getListVehicle() {
   return json;
 }
 
-export async function deleteVehicle(id) {
-  const res = await fetch(`${APIURL}${id}`, {
+export async function deleteVehicle(licensePlate) {
+  const res = await fetch(`${APIURL}/${licensePlate}`, {
     method: "DELETE",
     // headers: new Headers({
     //   Authorization: localStorage.getItem("token"),
@@ -19,7 +19,7 @@ export async function deleteVehicle(id) {
   return json;
 }
 
-export async function updateVehicle(id, data) {
+export async function updateVehicle(data) {
   const res = await fetch(`${APIURL}`, {
     method: "PUT",
     // headers: new Headers({

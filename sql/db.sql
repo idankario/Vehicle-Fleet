@@ -25,13 +25,4 @@ INSERT into [dbo].[Vehicle]
 VALUES ('e-tron', 'silver', '2019', 'BMW', '34gty778h')
 
 
-Delete from dbo.Vehicle
-where VehicleId=1;
-
-update dbo.Vehicle
-set color= @color,
-year=@year,
-manufacturers=@manufacturers,
-licensePlate=@licensePlate
-where VehicleId=@VehicleId;
                           

@@ -11,7 +11,10 @@ import { deleteVehicle } from "../Api";
 
 export default function TableVehicle({ rows }) {
   return (
-    <Table sx={{ width: "1000px", margin: "auto" }} aria-label="simple table">
+    <Table
+      sx={{ width: "1000px", fontWeight: "bold", margin: "auto" }}
+      aria-label="Vehicle table"
+    >
       <TableHead>
         <TableRow
           sx={{
@@ -20,16 +23,12 @@ export default function TableVehicle({ rows }) {
             boxShadow: "0 3px 5px 2px rgba(255, 105, 135, .3)",
           }}
         >
-          <TableCell sx={{ color: `black`, fontSize: "30px" }}>
-            License Plate
-          </TableCell>
-          <TableCell sx={{ color: `black`, fontSize: "30px" }}>Model</TableCell>
-          <TableCell sx={{ color: `black`, fontSize: "30px" }}>
-            Manufacturers
-          </TableCell>
-          <TableCell sx={{ color: `black`, fontSize: "30px" }}>Year</TableCell>
-          <TableCell sx={{ color: `black`, fontSize: "30px" }}>Color</TableCell>
-          <TableCell sx={{ color: `s`, fontSize: "30px" }}>Buttons</TableCell>
+          <TableCell>License Plate</TableCell>
+          <TableCell>Model</TableCell>
+          <TableCell>Manufacturers</TableCell>
+          <TableCell>Year</TableCell>
+          <TableCell>Color</TableCell>
+          <TableCell>Buttons</TableCell>
         </TableRow>
       </TableHead>
 
@@ -39,7 +38,6 @@ export default function TableVehicle({ rows }) {
               <TableRow
                 key={`${row.licensePlate}`}
                 sx={{
-                  "&:last-child td, &:last-child th": { border: 0 },
                   "&:hover": {
                     background:
                       row.is_active === 2
@@ -48,16 +46,12 @@ export default function TableVehicle({ rows }) {
                   },
                 }}
               >
-                <TableCell sx={{ fontSize: "18px" }}>
-                  {row.licensePlate}
-                </TableCell>
-                <TableCell sx={{ fontSize: "18px" }}>{row.model}</TableCell>
-                <TableCell sx={{ fontSize: "18px" }}>{row.color}</TableCell>
-                <TableCell sx={{ fontSize: "18px" }}>{row.year}</TableCell>
-                <TableCell sx={{ fontSize: "18px" }}>
-                  {row.manufacturers}
-                </TableCell>
-                <TableCell sx={{ fontSize: "18px" }}>
+                <TableCell>{row.licensePlate}</TableCell>
+                <TableCell>{row.model}</TableCell>
+                <TableCell>{row.manufacturers}</TableCell>
+                <TableCell>{row.year.split("-")[0]}</TableCell>
+                <TableCell>{row.color}</TableCell>
+                <TableCell>
                   <IconButton aria-label="editIcon" title="Edit">
                     <EditIcon />
                   </IconButton>
