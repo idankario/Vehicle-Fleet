@@ -38,7 +38,7 @@
 </p>
 <p><b>2) npm i</b></p>
 
-
+<p><b>you can import my bak file on sql folder or use sql command to crate new table</b></p>
 
 
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)

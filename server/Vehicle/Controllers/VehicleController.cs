@@ -47,39 +47,73 @@ namespace Vehicle.Controllers
 
             return new JsonResult(table);
         }
-
-        [HttpPost]
-        public JsonResult Post(VehicleC vec)
+        public int CheckIfExist(string licensePlate)
         {
             string query = @"
-                            INSERT into dbo.Vehicle
-                           (model,color,year,manufacturers,licensePlate)
-                           values (@model,@color,@year,@manufacturers,@licensePlate)
+                            select count(licensePlate) from
+                            dbo.Vehicle
+                            WHERE licensePlate=@licensePlate
                             ";
 
-
-        DataTable table = new DataTable();
+            DataTable table = new DataTable();
             string sqlDataSource = _configuration.GetConnectionString("EmployeeAppCon");
-            SqlDataReader myReader;
-
+            int UserExist = 0;
             using (SqlConnection myCon = new SqlConnection(sqlDataSource))
             {
                 myCon.Open();
                 using (SqlCommand myCommand = new SqlCommand(query, myCon))
                 {
-                    myCommand.Parameters.AddWithValue("@model", vec.model);
-                    myCommand.Parameters.AddWithValue("@color", vec.color);
-                    myCommand.Parameters.AddWithValue("@year", vec.year);
-                    myCommand.Parameters.AddWithValue("@manufacturers", vec.manufacturers);
-                    myCommand.Parameters.AddWithValue("@licensePlate", vec.licensePlate);
-                    myReader = myCommand.ExecuteReader();
-                    table.Load(myReader);
-                    myReader.Close();
+                    myCommand.Parameters.AddWithValue("@licensePlate", licensePlate);
+                    SqlDataReader reader = myCommand.ExecuteReader();
+                    if (reader.HasRows)
+                    {
+                        UserExist = 1;
+                    }
+                    table.Load(reader);
+                    reader.Close();
                     myCon.Close();
                 }
             }
 
-            return Get();
+ 
+            return table.Rows[0].Field<int>(0);
+        }
+        [HttpPost]
+        public JsonResult Post(VehicleC vec)
+        {    
+            if (CheckIfExist(vec.licensePlate) == 0)
+            {
+                string query = @"
+                            INSERT into dbo.Vehicle
+                           (model,color,year,manufacturers,licensePlate)
+                           values (@model,@color,@year,@manufacturers,@licensePlate)
+                            ";
+
+                DataTable table = new DataTable();
+                string sqlDataSource = _configuration.GetConnectionString("EmployeeAppCon");
+                SqlDataReader myReader;
+
+                using (SqlConnection myCon = new SqlConnection(sqlDataSource))
+                {
+                    myCon.Open();
+                    using (SqlCommand myCommand = new SqlCommand(query, myCon))
+                    {
+                        myCommand.Parameters.AddWithValue("@model", vec.model);
+                        myCommand.Parameters.AddWithValue("@color", vec.color);
+                        myCommand.Parameters.AddWithValue("@year", vec.year);
+                        myCommand.Parameters.AddWithValue("@manufacturers", vec.manufacturers);
+                        myCommand.Parameters.AddWithValue("@licensePlate", vec.licensePlate);
+                        myReader = myCommand.ExecuteReader();
+                        table.Load(myReader);
+                        myReader.Close();
+                        myCon.Close();
+                    }
+                }
+
+                return Get();
+            }
+            return new JsonResult("Error");
+          
         }
 
 
@@ -93,10 +127,8 @@ namespace Vehicle.Controllers
                             year=@year,
                             manufacturers=@manufacturers,
                             licensePlate=@licensePlate
-                            where VehicleId=@VehicleId
+                            where licensePlate=@licensePlate
                             ";
- 
-
             DataTable table = new DataTable();
             string sqlDataSource = _configuration.GetConnectionString("EmployeeAppCon");
             SqlDataReader myReader;
@@ -120,12 +152,12 @@ namespace Vehicle.Controllers
             return Get();
         }
 
-        [HttpDelete("{id}")]
-        public JsonResult Delete(int id)
+        [HttpDelete("{licensePlate}")]
+        public JsonResult Delete(string licensePlate)
         {
             string query = @"
                            delete from dbo.Vehicle
-                            where VehicleId=@VehicleId
+                            where licensePlate=@licensePlate
                             ";
 
             DataTable table = new DataTable();
@@ -136,7 +168,7 @@ namespace Vehicle.Controllers
                 myCon.Open();
                 using (SqlCommand myCommand = new SqlCommand(query, myCon))
                 {
-                    myCommand.Parameters.AddWithValue("@VehicleId", id);
+                    myCommand.Parameters.AddWithValue("@licensePlate", licensePlate);
 
                     myReader = myCommand.ExecuteReader();
                     table.Load(myReader);
