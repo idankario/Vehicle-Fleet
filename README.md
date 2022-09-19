@@ -30,7 +30,9 @@
 Home Page  
 :------------------------:
 ![Home Page](./screen/homepage.PNG)  
-
+delete Page  
+:------------------------:
+![Delete Page](./screen/Delete.PNG)  
 
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
@@ -40,6 +42,7 @@ Home Page
 </p>
 <p><b>2) npm i</b></p>
 
+<a href="https://documenter.getpostman.com/view/17930872/2s7Ytaequr">postman collection</a>
 
 
 
