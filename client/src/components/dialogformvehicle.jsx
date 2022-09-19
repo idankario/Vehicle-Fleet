@@ -21,7 +21,6 @@ function PaperComponent(props) {
     </Draggable>
   );
 }
-
 // eslint-disable-next-line no-unused-vars
 function DialogFormVehicle({ formData, handleClose, open, isEdit }) {
   return (

@@ -22,12 +22,10 @@ function FormVehicle() {
     eLicensePlate: "",
   });
 
-  const isFull = data.manufacturers && data.licensePlate;
   const onSubmit = async (event) => {
     event.preventDefault();
     checkFormVehicle(data, setError);
   };
-
   return (
     <form onSubmit={onSubmit}>
       <section>
