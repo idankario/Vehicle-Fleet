@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\gal\\Desktop\\CRUD car\\server\\Vehicle\\Vehicle\\Vehicle.csproj": {}
+    "C:\\Users\\gal\\Desktop\\CRUD car\\client\\server\\Vehicle\\Vehicle.csproj": {}
   },
   "projects": {
-    "C:\\Users\\gal\\Desktop\\CRUD car\\server\\Vehicle\\Vehicle\\Vehicle.csproj": {
+    "C:\\Users\\gal\\Desktop\\CRUD car\\client\\server\\Vehicle\\Vehicle.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\gal\\Desktop\\CRUD car\\server\\Vehicle\\Vehicle\\Vehicle.csproj",
+        "projectUniqueName": "C:\\Users\\gal\\Desktop\\CRUD car\\client\\server\\Vehicle\\Vehicle.csproj",
         "projectName": "Vehicle",
-        "projectPath": "C:\\Users\\gal\\Desktop\\CRUD car\\server\\Vehicle\\Vehicle\\Vehicle.csproj",
+        "projectPath": "C:\\Users\\gal\\Desktop\\CRUD car\\client\\server\\Vehicle\\Vehicle.csproj",
         "packagesPath": "C:\\Users\\gal\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\gal\\Desktop\\CRUD car\\server\\Vehicle\\Vehicle\\obj\\",
+        "outputPath": "C:\\Users\\gal\\Desktop\\CRUD car\\client\\server\\Vehicle\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",

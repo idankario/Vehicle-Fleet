@@ -1,18 +1,15 @@
-const APIURL = `http://localhost:3000`;
+const APIURL = `http://localhost:28407/api/Vehicle`;
 
 export async function getListVehicle() {
-  // const res = await fetch(`${APIURL}/ListVehicle`, {
-  //   method: "GET",
-  //   // headers: new Headers({
-  //   //   Authorization: localStorage.getItem("token"),
-  //   // }),
-  // });
-  // const json = await res.json();
-  return "";
+  const res = await fetch(`${APIURL}`, {
+    method: "GET",
+  });
+  const json = await res.json();
+  return json;
 }
 
 export async function deleteVehicle(id) {
-  const res = await fetch(`${APIURL}/Vehicle/${id()}`, {
+  const res = await fetch(`${APIURL}${id}`, {
     method: "DELETE",
     // headers: new Headers({
     //   Authorization: localStorage.getItem("token"),
@@ -23,7 +20,7 @@ export async function deleteVehicle(id) {
 }
 
 export async function updateVehicle(id, data) {
-  const res = await fetch(`${APIURL}/Vehicle/${id()}`, {
+  const res = await fetch(`${APIURL}`, {
     method: "PUT",
     // headers: new Headers({
     //   Authorization: localStorage.getItem("token"),

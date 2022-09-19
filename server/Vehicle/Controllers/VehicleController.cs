@@ -61,6 +61,7 @@ namespace Vehicle.Controllers
         DataTable table = new DataTable();
             string sqlDataSource = _configuration.GetConnectionString("EmployeeAppCon");
             SqlDataReader myReader;
+
             using (SqlConnection myCon = new SqlConnection(sqlDataSource))
             {
                 myCon.Open();
@@ -78,7 +79,7 @@ namespace Vehicle.Controllers
                 }
             }
 
-            return new JsonResult("Added Successfully");
+            return Get();
         }
 
 
@@ -116,7 +117,7 @@ namespace Vehicle.Controllers
                     myCon.Close();
                 }
             }
-            return new JsonResult("Updated Successfully");
+            return Get();
         }
 
         [HttpDelete("{id}")]
@@ -144,7 +145,7 @@ namespace Vehicle.Controllers
                 }
             }
 
-            return new JsonResult("Deleted Successfully");
+            return Get(); 
         }
 
     }

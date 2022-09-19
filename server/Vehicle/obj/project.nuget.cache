@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "NU/4qXjInufiH5YqgvzmZtp7WKEZT9KXj51vept2ZX4U91d+c2Mycso+th65PtQgfe1Cnq3yZz9avq7BxncbMA==",
+  "dgSpecHash": "TcGO8QY0RjaTkX3wfO/bW6AuPBZl+gpNoK1MknIt3KF8Wo/s90mIWaplDL3bvUVgBtZfRQD4r3Dvo7ZQHR2cxg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\gal\\Desktop\\CRUD car\\server\\Vehicle\\Vehicle\\Vehicle.csproj",
+  "projectFilePath": "C:\\Users\\gal\\Desktop\\CRUD car\\client\\server\\Vehicle\\Vehicle.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\gal\\.nuget\\packages\\microsoft.aspnetcore.jsonpatch\\3.1.16\\microsoft.aspnetcore.jsonpatch.3.1.16.nupkg.sha512",
     "C:\\Users\\gal\\.nuget\\packages\\microsoft.aspnetcore.mvc.newtonsoftjson\\3.1.16\\microsoft.aspnetcore.mvc.newtonsoftjson.3.1.16.nupkg.sha512",

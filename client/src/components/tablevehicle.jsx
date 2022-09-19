@@ -7,6 +7,7 @@ import TableBody from "@mui/material/TableBody";
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
 import IconButton from "@mui/material/IconButton";
+import { deleteVehicle } from "../Api";
 
 export default function TableVehicle({ rows }) {
   return (
@@ -34,40 +35,42 @@ export default function TableVehicle({ rows }) {
 
       <TableBody>
         {rows
-          ? rows.map((row) =>
-              row.image_name.split(".").length > 1 ? (
-                <TableRow
-                  key={`${row.image_name}`}
-                  sx={{
-                    "&:last-child td, &:last-child th": { border: 0 },
-                    "&:hover": {
-                      background:
-                        row.is_active === 2
-                          ? `linear-gradient(45deg, #CDFA00 40%, #ECB22F 90%)`
-                          : `linear-gradient(45deg, #606060 40%, #606060 90%)`,
-                    },
-                  }}
-                >
-                  <TableCell sx={{ fontSize: "18px" }}>{row.lp}</TableCell>
-                  <TableCell sx={{ fontSize: "18px" }}>{row.mode}</TableCell>
-                  <TableCell sx={{ fontSize: "18px" }}>
-                    {row.manufacturers}
-                  </TableCell>
-                  <TableCell sx={{ fontSize: "18px" }}>{row.year}</TableCell>
-                  <TableCell sx={{ fontSize: "18px" }}>{row.color}</TableCell>
-                  <TableCell sx={{ fontSize: "18px" }}>
-                    <IconButton aria-label="editIcon">
-                      <EditIcon />
-                    </IconButton>
-                    <IconButton aria-label="editIcon">
-                      <DeleteIcon />
-                    </IconButton>
-                  </TableCell>
-                </TableRow>
-              ) : (
-                ""
-              )
-            )
+          ? rows.map((row) => (
+              <TableRow
+                key={`${row.licensePlate}`}
+                sx={{
+                  "&:last-child td, &:last-child th": { border: 0 },
+                  "&:hover": {
+                    background:
+                      row.is_active === 2
+                        ? `linear-gradient(45deg, #606060 40%, #606060 90%)`
+                        : `linear-gradient(45deg, #CDFA00 40%, #ECB22F 90%)`,
+                  },
+                }}
+              >
+                <TableCell sx={{ fontSize: "18px" }}>
+                  {row.licensePlate}
+                </TableCell>
+                <TableCell sx={{ fontSize: "18px" }}>{row.model}</TableCell>
+                <TableCell sx={{ fontSize: "18px" }}>{row.color}</TableCell>
+                <TableCell sx={{ fontSize: "18px" }}>{row.year}</TableCell>
+                <TableCell sx={{ fontSize: "18px" }}>
+                  {row.manufacturers}
+                </TableCell>
+                <TableCell sx={{ fontSize: "18px" }}>
+                  <IconButton aria-label="editIcon" title="Edit">
+                    <EditIcon />
+                  </IconButton>
+                  <IconButton
+                    onClick={() => deleteVehicle(row.licensePlate)}
+                    aria-label="editIcon"
+                    title="Delete"
+                  >
+                    <DeleteIcon />
+                  </IconButton>
+                </TableCell>
+              </TableRow>
+            ))
           : ""}
       </TableBody>
     </Table>
