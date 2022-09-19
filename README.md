@@ -33,7 +33,7 @@ Home Page
 
 Delete Page  
 :------------------------:
-![Delete Page](./screen/Delete.PNG)  
+![Delete Page](./screen/delete.PNG)  
 
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
