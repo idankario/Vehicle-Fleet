@@ -84,7 +84,7 @@ export default function TableVehicle({ rows }) {
                     </IconButton>
                     {editDialog && (
                       <DialogFormVehicle
-                        formData={row}
+                        dataForm={row}
                         handleClose={handleEditClose}
                         open={editDialog}
                         isEdit={1}
