@@ -1,12 +1,12 @@
 import { styled } from "@mui/material/styles";
 
-const ContainerMiddle = styled("div")(() => ({
-  background: `#161c2d`,
-  padding: "10px",
-  "& p": {
-    color: "#fff",
+const Container = styled("div")(() => ({
+  maxWidth: "100vw",
+  minHeight: "100vh",
+  "& h1, & h2, & h3 ": {
+    color: "#0000FF",
     textAlign: "center",
-    margin: "20px",
   },
 }));
-export default ContainerMiddle;
+
+export default Container;

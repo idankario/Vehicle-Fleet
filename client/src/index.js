@@ -3,6 +3,7 @@ import ReactDOM from "react-dom/client";
 import GlobalStyles from "@mui/material/GlobalStyles";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
+import Footer from "./components/footer";
 
 const useStyles = {
   "*": {
@@ -14,7 +15,6 @@ const useStyles = {
   },
   body: {
     fontFamily: "Times New Roman",
-    minHeight: "100vh",
   },
   a: {
     textDecoration: "none",
@@ -30,6 +30,15 @@ root.render(
       }}
     />
     <App />
+    <Footer>
+      <p>© Online Vehicle Fleet</p>
+      <p>
+        Done by{" "}
+        <a href="https://github.com/idankario" target="_blank" rel="noreferrer">
+          Idan Kario
+        </a>
+      </p>
+    </Footer>
   </React.StrictMode>
 );
 reportWebVitals();
