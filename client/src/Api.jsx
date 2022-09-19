@@ -34,9 +34,6 @@ export async function updateVehicle(data) {
 export async function createVehicle(data) {
   const res = await fetch(`${APIURL}/Vehicle`, {
     method: "POST",
-    // headers: new Headers({
-    //   Authorization: localStorage.getItem("token"),
-    // }),
     data,
   });
   const json = await res.json();
