@@ -19,22 +19,27 @@ export async function deleteVehicle(licensePlate) {
   return json;
 }
 
-export async function updateVehicle(data) {
-  const res = await fetch(`${APIURL}`, {
+export async function updateVehicle(data, licensePlate) {
+  const res = await fetch(`${APIURL}/${licensePlate}`, {
     method: "PUT",
-    // headers: new Headers({
-    //   Authorization: localStorage.getItem("token"),
-    // }),
-    data,
+    headers: {
+      Accept: "application/json, text/plain",
+      "Content-Type": "application/json;charset=UTF-8",
+    },
+    body: JSON.stringify(data),
   });
   const json = await res.json();
   return json;
 }
 
 export async function createVehicle(data) {
-  const res = await fetch(`${APIURL}/Vehicle`, {
+  const res = await fetch(`${APIURL}`, {
     method: "POST",
-    data,
+    headers: {
+      Accept: "application/json, text/plain",
+      "Content-Type": "application/json;charset=UTF-8",
+    },
+    body: JSON.stringify(data),
   });
   const json = await res.json();
   return json;

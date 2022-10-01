@@ -46,7 +46,7 @@ function HomePage() {
         {rows ? (
           <TableVehicle rows={rows} />
         ) : (
-          <CircularProgress style={{ marginTop: "20vh", color: "yellow" }} />
+          <CircularProgress xs={{ marginTop: "20vh", color: "yellow" }} />
         )}
       </div>
     </Container>
