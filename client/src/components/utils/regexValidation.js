@@ -1,19 +1,19 @@
 export function isLicensePlate(licensePlate) {
-  if (/^[0-9]||[a-z]||[A-Z]{4,8}$/.test(licensePlate)) return "";
+  if (/^[A-Za-z0-9]{4,8}$/.test(licensePlate)) return "";
   return "Please enter a valid license plate";
 }
 
 export function isModel(model) {
-  if (/^[0-9]||[a-z]||[A-Z]{4,8}$/.test(model)) return "";
+  if (/^[A-Za-z0-9]{4,8}$/.test(model)) return "";
   return "Please enter a valid israel Number Address";
 }
 
 export async function checkFormVehicle(data, setError) {
   // eslint-disable-next-line camelcase
-  const { model, manufacturers } = data;
+  const { model, licensePlate } = data;
 
   const eModel = isModel(model);
-  const eLicensePlate = isLicensePlate(manufacturers);
+  const eLicensePlate = isLicensePlate(licensePlate);
   setError({
     eModel,
     eLicensePlate,

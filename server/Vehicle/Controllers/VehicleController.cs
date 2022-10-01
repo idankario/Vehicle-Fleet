@@ -116,9 +116,8 @@ namespace Vehicle.Controllers
           
         }
 
-
-        [HttpPut]
-        public JsonResult Put(VehicleC vec)
+        [HttpPut("{id}")]
+        public JsonResult Put(VehicleC vec, string id)
         {
             string query = @"
                            update dbo.Vehicle
@@ -127,7 +126,7 @@ namespace Vehicle.Controllers
                             year=@year,
                             manufacturers=@manufacturers,
                             licensePlate=@licensePlate
-                            where licensePlate=@licensePlate
+                            where licensePlate=@id
                             ";
             DataTable table = new DataTable();
             string sqlDataSource = _configuration.GetConnectionString("EmployeeAppCon");
@@ -143,6 +142,7 @@ namespace Vehicle.Controllers
                     myCommand.Parameters.AddWithValue("@year", vec.year);
                     myCommand.Parameters.AddWithValue("@manufacturers", vec.manufacturers);
                     myCommand.Parameters.AddWithValue("@licensePlate", vec.licensePlate);
+                    myCommand.Parameters.AddWithValue("@id", id);
                     myReader = myCommand.ExecuteReader();
                     table.Load(myReader);
                     myReader.Close();
@@ -169,7 +169,6 @@ namespace Vehicle.Controllers
                 using (SqlCommand myCommand = new SqlCommand(query, myCon))
                 {
                     myCommand.Parameters.AddWithValue("@licensePlate", licensePlate);
-
                     myReader = myCommand.ExecuteReader();
                     table.Load(myReader);
                     myReader.Close();

@@ -1,6 +1,6 @@
 import { styled } from "@mui/material/styles";
 
-const Footer = styled("footer")(() => ({
+const Footer = styled("div")(() => ({
   background: "#161c2d",
   height: "100px",
   "& p": {

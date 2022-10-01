@@ -22,23 +22,26 @@ const useStyles = {
 };
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
+const footer = ReactDOM.createRoot(document.getElementById("footer"));
 root.render(
-  <React.StrictMode>
+  <>
     <GlobalStyles
       styles={{
         ...useStyles,
       }}
     />
     <App />
-    <Footer>
-      <p>© Online Vehicle Fleet</p>
-      <p>
-        Done by{" "}
-        <a href="https://github.com/idankario" target="_blank" rel="noreferrer">
-          Idan Kario
-        </a>
-      </p>
-    </Footer>
-  </React.StrictMode>
+  </>
+);
+footer.render(
+  <Footer>
+    <p>© Online Vehicle Fleet</p>
+    <p>
+      Done by{" "}
+      <a href="https://github.com/idankario" target="_blank" rel="noreferrer">
+        Idan Kario
+      </a>
+    </p>
+  </Footer>
 );
 reportWebVitals();

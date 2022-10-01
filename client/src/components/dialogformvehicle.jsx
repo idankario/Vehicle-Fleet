@@ -1,9 +1,7 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import React from "react";
-import Button from "@mui/material/Button";
 import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
-import DialogTitle from "@mui/material/DialogTitle";
 import Draggable from "react-draggable";
 import Paper from "@mui/material/Paper";
 import FormVehicle from "./formvehicle";
@@ -18,7 +16,6 @@ function PaperComponent(props) {
     </Draggable>
   );
 }
-// eslint-disable-next-line no-unused-vars
 function DialogFormVehicle({ formData, handleClose, open, isEdit }) {
   return (
     <Dialog
@@ -26,21 +23,12 @@ function DialogFormVehicle({ formData, handleClose, open, isEdit }) {
       aria-labelledby="draggable-dialog-title"
       open={open}
     >
-      <DialogTitle id="alert-dialog-title">
-        {isEdit ? "Edit Vehicle" : "Create new Vehicle"}
-      </DialogTitle>
       <DialogActions>
-        <FormVehicle Dataform={formData} />
-
-        <Button onClick={handleClose}>Disagree</Button>
-        <Button
-          onClick={() => {
-            handleClose();
-          }}
-          autoFocus
-        >
-          Agree
-        </Button>
+        <FormVehicle
+          Dataform={formData}
+          closeHandle={handleClose}
+          isEditForm={isEdit}
+        />
       </DialogActions>
     </Dialog>
   );
