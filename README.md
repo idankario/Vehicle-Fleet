@@ -19,8 +19,7 @@
 <h2> :book: Introduction</h2>
 
 <p>
-
-
+This repository contains an sample CRUD (Create, Read, Update, and Delete) API written in react and ASP.NET Core . You will need to have ASP.NET Core installed. All the other dependencies will be downloaded from NuGet. 
 </p>
 
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
@@ -28,18 +27,18 @@
 ## Screenshots
 
 Home Page  
-:------------------------:
-![Home Page](../screen/homepage.PNG)
+======
+![Home Page](./screen/homepage.PNG)
 
-Delete   
-:------------------------:
-![Delete Page](../screen/delete.PNG)  
+Delete
+======
+![Delete Page](./screen/delete.PNG)  
 
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
 Create new Vehicle  |  Edit Vehicle
 :------------------------:|:-------------------------:
-![Create new Vehicle](../screen/create.PNG)  |  ![Edit Vehicle](../screen/edit.PNG) 
+![Create new Vehicle](./screen/create.PNG)  |  ![Edit Vehicle](./screen/edit.PNG) 
 
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 

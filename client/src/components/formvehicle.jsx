@@ -77,7 +77,7 @@ function FormVehicle({ Dataform, closeHandle, isEditForm }) {
             minDate="2010"
             maxDate="2021"
             onChange={(newValue) => {
-              setData({ ...data, year: newValue.$y });
+              setData({ ...data, year: new Date(newValue.$y) });
               setYear(newValue);
             }}
             // eslint-disable-next-line react/jsx-props-no-spreading

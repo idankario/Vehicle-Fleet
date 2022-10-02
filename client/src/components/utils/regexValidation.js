@@ -4,7 +4,7 @@ export function isLicensePlate(licensePlate) {
 }
 
 export function isModel(model) {
-  if (/^[A-Za-z0-9]{4,8}$/.test(model)) return "";
+  if (/^[A-Za-z0-9-]{4,8}$/.test(model)) return "";
   return "Please enter a valid israel Number Address";
 }
 

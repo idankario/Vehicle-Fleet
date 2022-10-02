@@ -1,4 +1,4 @@
-const APIURL = `http://localhost:28407/api/Vehicle`;
+const APIURL = `https://localhost:7027/api/Vehicles`;
 
 export async function getListVehicle() {
   const res = await fetch(`${APIURL}`, {
