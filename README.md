@@ -6,7 +6,7 @@
 ### Front-End
 * JavaScript.
 * Material-UI for component and style.
-* Frameword react.
+* Framework react.
 
 ### Backend
 *  CORE NET.ASP C#.
